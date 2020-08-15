@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset=utf-8 />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui' />
+    <title>Autism</title>
+    <script src='http://cdn.leafletjs.com/leaflet/v1.3.1/leaflet.js'></script>
+
+    <link href='http://cdn.leafletjs.com/leaflet/v1.3.1/leaflet.css' rel='stylesheet' />
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+crossorigin=""></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+  <script src="choropleth.js"></script>
+
+
+    <style>
+    body {
+        margin: 0;
+        padding: 0;
+    }
+    #map {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+    }
+
+    .info {
+    padding: 6px 8px;
+    font: 14px/16px Arial, Helvetica, sans-serif;
+    background: white;
+    background: rgba(255,255,255,0.8);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
+}
+    .info h4 {
+        margin: 0 0 5px;
+        color: #777;
+    }
+        .legend {
+        line-height: 18px;
+        color: #555;
+    }
+    .legend i {
+        width: 18px;
+        height: 18px;
+        float: left;
+        margin-right: 8px;
+        opacity: 0.7;
+    }
+    </style>
+</head>
+
+<body>
+
+    <div id='map'></div>
+
+    <script>
+
+
+    var map = L.map('map').setView([47.35, -120.74], 7);
+    var CartoDB_Positron = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+    	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+    	subdomains: 'abcd',
+      minZoom: 6,
+    	// maxZoom: 10,
+      id: 'mapbox.streets',
+      accessToken: 'pk.eyJ1IjoiY2luZHl2dTQiLCJhIjoiY2sydzVleGJ3MGNkNDNpcW1odG1icDEwciJ9._9FHgo3Qa682z450P9Xz_w'
+    }).addTo(map);
+
+
+// load school district boundaries GeoJSON
+$.getJSON("Autism2.json",function(data){
+		L.geoJson(data, {
+		style: function(feature) {
+			return {
+				color: "black",
+				fillOpacity: 0,
+				weight: 1
+			};
+		},
+		onEachFeature: function (feature, layer) {
+            layer.bindPopup("School District: " + feature.properties.School_Dis + " </br> " + "Prevalence: " + feature.properties.Prevalence);
+          }
+				}).addTo(map);
+
+
+// get color depending on population density value
+	function getColor(d) {
+		return d > 116 ? '#800026' :
+				d > 80  ? '#E31A1C' :
+				d > 50  ? '#FD8D3C' :
+				d > 15  ? '#FED976' :
+							'#FFEDA0';
+	}
+
+	function style(feature) {
+		return {
+			weight: 2,
+			opacity: 1,
+			color: 'white',
+			dashArray: '3',
+			fillOpacity: 1,
+			fillColor: getColor(feature.properties.Prevalence)
+		};
+	}
+
+	var geojson = L.geoJson(data, {
+		style: style,
+	}).addTo(map);
+
+
+    function onEachFeature(feature, layer) {
+             layer.bindPopup("School District: " + feature.properties.School_Dis + " </br> " + "Prevalence: " + feature.properties.Prevalence)
+           };
+
+       geojson = L.geoJson(data, {
+            style: style,
+            onEachFeature: onEachFeature
+           }).addTo(map);
+
+
+    var legend = L.control({position: 'bottomright'});
+    	legend.onAdd = function (map) {
+    		var div = L.DomUtil.create('div', 'info legend'),
+    			grades = [0, 16, 51, 81, 116,],
+    			labels = [],
+    			from, to;
+    		for (var i = 0; i < grades.length; i++) {
+    			from = grades[i];
+    			to = grades[i + 1];
+    			labels.push(
+    				'<i style="background:' + getColor(from + 1) + '"></i> ' +
+    				from + (to ? '&ndash;' + (to -1) : '-200'));
+    		}
+    		div.innerHTML = labels.join('<br>');
+    		return div;
+    	};
+    	legend.addTo(map);
+});
+
+    </script>
+</body>
+</html>

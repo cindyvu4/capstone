@@ -1,0 +1,194 @@
+<!DOCTYPE HTML>
+<!--
+	Stellar by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Childhood Autism in Washington</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+  crossorigin=""/>
+	<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.js'></script>
+			<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.css' rel='stylesheet' />
+			<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-compare/v0.1.0/mapbox-gl-compare.js'></script>
+			<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-compare/v0.1.0/mapbox-gl-compare.css' type='text/css' />
+
+	<script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+  integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+  crossorigin=""></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header" class="alt">
+						<h1>Childhood Autism in Washington</h1>
+						<br>
+						<p>Relationship between urban green space, air pollution, and childhood autism<br /> in Washington’s public elementary schools.
+						</p>
+						<br>
+						<p>Cindy Vu - MSGT Candidate '20</p>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul>
+							<li><a href="#intro" class="active">Introduction</a></li>
+							<li><a href="#first">Autism</a></li>
+							<li><a href="#second">Green Space</a></li>
+							<li><a href="#third">Air Pollution</a></li>
+							<li><a href="#final">Learning Outcomes</a></li>
+						</ul>
+					</nav>
+
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Introduction -->
+							<section id="intro" class="main">
+								<div class="spotlight">
+									<div class="content">
+										<header class="major">
+											<h2>Goal</h2>
+										</header>
+										<p>Childhood autism rate has been increasing over the years in the United States. Urban children are generally exposed to higher levels of environmental hazards such as air pollution and have limited access to green spaces than children from rural areas. Green space has been found to have a defining role in human health. This study will examine childhood autism prevalence with air pollution, and green space as a confounding variable in Washington. It will focus on students in public elementary schools from the year 2010. </p>
+
+										<p>The study does not answer causation questions related to childhood autism, but rather a correlation of autism prevalence. Incorporating more green space will have tremendous benefits and could potentially be a form of autism prevention at a very basic level. It aims to establish a greater understanding of our environment to empower city planners all around to have better land-based decision making with relevant information that can help build upon and improve the city’s sustainability for the upcoming generations.  </p>
+									</div>
+									<span class="image"><img src="images\autism.jpg" alt="" /></span>
+								</div>
+							</section>
+
+						<!-- First Section -->
+							<section id="first" class="main special">
+								<header class="major">
+									<h2>Autism Prevalence </h2>
+								</header>
+
+								<div class="prevalence">
+									<p> Autism data was collected by school districts from the Washington Office of Superintendent of Public Instruction. Cases between 1-9 (n< 10) were redacted for confidentiality in the report. For this study, redacted data was assigned as n=1. Data was standardize and autism prevalence rate are shown by cases per 1000 elementary students in the district.</p>
+								</div>
+
+								<div class="autism">
+									<iframe src="autism.html" width="85%" height="550px" ></iframe>
+								</div>
+
+								<footer class="major">
+									<ul class="actions special">
+										<li><a href="generic.html" class="button">Learn More</a></li>
+									</ul>
+								</footer>
+							</section>
+
+						<!-- Second Section -->
+							<section id="second" class="main special">
+								<header class="major">
+									<h2>Green Space</h2>
+									<p>WA Land Cover and Normalized Difference Index</p>
+								</header>
+
+								<div class="NDVI">
+									<iframe src="NDVI.html" width="75%" height="315px" ></iframe>
+								</div>
+								<p>(Slide between the two maps)</p>
+								<p class="content">The study used the Normalized Difference Vegetation Index (NDVI) to calculate vegetation density through satellite remote sensing based on light absorption on the surface of the earth by near-infrared and red-light. The formula for <b>NDVI = (NIR-Red) / (NIR +Red)</b>. The density of vegetation (NDVI) is equal to the difference in the intensities of reflected light in red and infrared range divided by the sum of the intensities. NDVI value ranges between -1 to +1. A value closer to 1 means a denser green area. When the value is closer to zero, the area could be an urbanized area, and with data closer to -1 mean no vegetation. Data was obtained from from the U.S. Geological Survey (USGS), Landsat 4-5 Thematic Mapper (TM) dataset with a 30m x 30m resolution. The time frame was in Spring 2010 between March 20th- June 21st. Selecting other seasons will result in low leaf health, just the ground, or snow which would affect the NDVI results. <br>Land Cover map is included to provide <i>an estimated</i> visual understanding how land was used in WA. Land Cover map data was obtained from the 2011 Multi-Resolution Land Characteristics Consortium (MRLC). The disrepency between the two maps specifically in the middle geography of Washington can mostly be describe by the change in time of when the map was created/satellite images being taken.  </p>
+
+							</section>
+
+
+						<!-- Third Section -->
+							<section id="third" class="main special">
+								<header class="major">
+									<h2>Air Pollution</h2>
+									<h3>Statistical Analysis</h3>
+								</header>
+										<p>The study focused on air pollutant of Particulate Matter 2.5 (PM2.5).
+										 Data was collected from the US Environmental Protection Agency’s Air Quality System.To estimate the annual average air pollution concentration, the study utilized a Land-Use Regression (LUR) model. PM2.5 levels was measured from multiple locations (n=11) within the study area as a dependent variable and linked with a set of predictor variables to develop a multiple linear regression model to evaluate the strength of influence. Predictive variables included:
+												<li>Land Cover</li>
+												<li>Highways</li>
+												<li>Daily traffic counts on highways</li>
+												<li>Minor Roads</li>
+												<li>Population density</li>
+												<li>Train routes</li>
+								<br>
+								A general precedure is represented in the following image. For in-depth method, <b>click on the picture:</b>
+								<br>
+								<br>
+								<a href="http://www.integrated-assessment.eu/eu/guidebook/land_use_regression.html" target="_blank">
+								<img border="0" alt="" src="images\LUR.png" width="270px" height="250px"></a>
+
+								<br>
+								<br>
+								Results of the statistical analysis came back as insignificant as shown by the P-Values in the picture below. We wanted p-values to be 0.05 or less. This means that predictive variables have no influence to the measured concentration sites. <b>It does not signify that these variables do not have influence on air pollution. </b> The negative statistical result is most likely explained through the lack of PM2.5 monitor sites available in 2010.
+								<br>
+								<br>
+								<img border="0" alt="" src="images\table.png" width="310px" height="265px"></a>
+
+
+								</p>
+
+						</section>
+
+
+															<!-- Final -->
+															<section id="final" class="main">
+																<div class="spotlight">
+																	<div class="content">
+																		<header class="major">
+																			<h2>Learning Outcomes</h2>
+																		</header>
+																		<p>In the end, the study was unable to move forward to draw connections between the three studied subjects to prove a statistical significance in autism prevalence based on air pollution. However, this study is still a valuable learning experiment and can be a base for future studies. We now confirmed that n=11 for PM2.5 is a remarkably small number to use as a means to calculate air pollution concentration in Washington using a regression model. With the maps that were made, we can gain a visual understanding of where childhood autism prevalence took place and the vegetation density associated with the district.
+																		<br>
+																		A strong correlation between childhood autism prevalence, air pollution concentration, and green space would still not be significant enough to explain why autism exists where it does. Other factors such as socioeconomic, demographic, and family-related health reports should be considered in future studies.
+																	</p>
+																	</div>
+
+																</div>
+															</div>
+															</section>
+
+												<!-- Footer -->
+													<footer id="footer">
+														<section>
+															<h2>Acknowledgement</h2>
+															<p>Thank you Dr. Emma Slager & Dr. Jim Thatcher for the continuous support and feedback.</p>
+														</section>
+														<section>
+															<h2>Contact</h2>
+															<dl class="alt">
+																<dt>Email</dt>
+																<dd><a href="#">cindivuu@gmail.com</a></dd>
+																<dt>Portfolio</dt>
+																<dd><a href="https://cindyvu4.github.io/Portfolio/" target=
+																	_blank>https://cindyvu4.github.io/Portfolio/ </a></dd>
+															</dl>
+															<ul class="icons">
+																<li><a href="https://github.com/cindyvu4" target="_blank" class="icon brands fa-github alt"><span class="label">GitHub</span></a></li>
+																<li><a href="https://www.linkedin.com/in/cindy-vu-40bb3811b/" target="_blank" class="icon brands fa-linkedin alt"><span class="label">Dribbble</span></a></li>
+															</ul>
+														</section>
+														<p class="copyright">&copy; Cindy Vu. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+													</footer>
+
+											</div>
+
+										<!-- Scripts -->
+											<script src="assets/js/jquery.min.js"></script>
+											<script src="assets/js/jquery.scrollex.min.js"></script>
+											<script src="assets/js/jquery.scrolly.min.js"></script>
+											<script src="assets/js/browser.min.js"></script>
+											<script src="assets/js/breakpoints.min.js"></script>
+											<script src="assets/js/util.js"></script>
+											<script src="assets/js/main.js"></script>
+
+									</body>
+								</html>
